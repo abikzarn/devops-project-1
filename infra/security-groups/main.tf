@@ -23,7 +23,7 @@ resource "aws_security_group" "ec2_sg_ssh_http" {
   # ssh for terraform remote exec
   ingress {
     description = "Allow remote SSH from anywhere"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["54.74.249.29/32"]
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
