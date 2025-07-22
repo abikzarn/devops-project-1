@@ -18,7 +18,7 @@ output "public_subnet_cidr_block" {
 
 # Setup VPC
 data "aws_vpc" "dev_proj_1_vpc_eu_central_1" {
-  internet_gateway_id = "vpc-02313e473cd00d49f"
+  id = "vpc-02313e473cd00d49f"
 }
 
 # Setup public subnet
@@ -48,7 +48,7 @@ resource "aws_subnet" "dev_proj_1_private_subnets" {
 # Setup Internet Gateway
 
 data "aws_internet_gateway" "dev_proj_1_public_internet_gateway" {
-  id = "igw-0c4c19a16ebc4ee63"
+  internet_gateway_id = "igw-0c4c19a16ebc4ee63"
 }
 
 # Public Route Table
