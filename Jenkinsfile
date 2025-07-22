@@ -25,6 +25,7 @@ pipeline {
                     steps {
                             dir('infra') {
                             sh 'echo "=================Terraform Init=================="'
+                            sh 'uname -an'
                             sh 'terraform init'
                         }
                 }
@@ -47,12 +48,10 @@ pipeline {
             steps {
                 script {
                     if (params.APPLY_TERRAFORM) {
-                       withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-crendentails-rwagh']]){
                             dir('infra') {
                                 sh 'echo "=================Terraform Apply=================="'
                                 sh 'terraform apply -auto-approve'
                             }
-                        }
                     }
                 }
             }
@@ -62,12 +61,10 @@ pipeline {
             steps {
                 script {
                     if (params.DESTROY_TERRAFORM) {
-                       withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-crendentails-rwagh']]){
                             dir('infra') {
                                 sh 'echo "=================Terraform Destroy=================="'
                                 sh 'terraform destroy -auto-approve'
                             }
-                        }
                     }
                 }
             }
