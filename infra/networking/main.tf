@@ -18,7 +18,7 @@ output "public_subnet_cidr_block" {
 
 # Setup VPC
 data "aws_vpc" "dev_proj_1_vpc_eu_central_1" {
-  id = "vpc-02313e473cd00d49f"
+  internet_gateway_id = "vpc-02313e473cd00d49f"
 }
 
 # Setup public subnet
