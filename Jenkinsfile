@@ -23,12 +23,10 @@ pipeline {
 
         stage('Terraform Init') {
                     steps {
-                       {
                             dir('infra') {
                             sh 'echo "=================Terraform Init=================="'
                             sh 'terraform init'
                         }
-                    }
                 }
         }
 
