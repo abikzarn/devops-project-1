@@ -17,13 +17,17 @@ output "public_subnet_cidr_block" {
 }
 
 # Setup VPC
+data "aws_vpc" "dev_proj_1_vpc_eu_central_1" {
+  id = "vpc-02313e473cd00d49f"
+}
+/*
 resource "aws_vpc" "dev_proj_1_vpc_eu_central_1" {
   cidr_block = var.vpc_cidr
   tags = {
     Name = var.vpc_name
   }
 }
-
+*/
 
 # Setup public subnet
 resource "aws_subnet" "dev_proj_1_public_subnets" {
